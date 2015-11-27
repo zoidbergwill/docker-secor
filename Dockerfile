@@ -18,8 +18,10 @@ ENV PATH $PATH:/usr/local/hadoop/bin
 
 RUN pip install --upgrade awscli
 
-# used for temp-files that are uploaded
-VOLUME /tmp
-
 ADD log4j.docker.properties /opt/secor/log4j.docker.properties
 ADD docker-entrypoint.sh /docker-entrypoint.sh
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
+# used for temp-files that are uploaded
+VOLUME /tmp
