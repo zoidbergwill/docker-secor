@@ -6,7 +6,7 @@ RUN apt-get update \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /opt/secor
-RUN curl -L https://bitbucket.org/sagent/downloads/downloads/secor-0.6-SNAPSHOT-bin.tar.gz | tar xz -C /opt/secor
+RUN curl -L https://bitbucket.org/sagent/downloads/downloads/secor-0.16-SNAPSHOT-bin.tar.gz | tar xz -C /opt/secor
 
 # hadoop
 RUN curl -s http://www.eu.apache.org/dist/hadoop/common/hadoop-2.7.1/hadoop-2.7.1.tar.gz | tar -xz -C /usr/local/
