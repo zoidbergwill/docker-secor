@@ -51,6 +51,7 @@ SECOR_GROUP=${SECOR_GROUP:-secor_backup}
 SECOR_PARSER=${SECOR_MESSAGE_PARSER:-com.pinterest.secor.parser.OffsetMessageParser}
 SECOR_PER_HOUR=${SECOR_PER_HOUR:-false}
 SECOR_OSTRICH_PORT=${SECOR_OSTRICH_PORT:-9999}
+JVM_MEMORY=${JVM_MEMORY:-512m}
 
 # target conf
 cat <<EOF > /opt/secor/secor.prod.target.properties
@@ -78,5 +79,5 @@ ostrich.port=$SECOR_OSTRICH_PORT
 
 EOF
 cd /opt/secor
-java -Xmx512m -ea -Dsecor_group=$SECOR_GROUP -Dlog4j.configuration=file:./log4j.docker.properties -Dconfig=secor.prod.target.properties \
+java -Xmx$JVM_MEMORY -ea -Dsecor_group=$SECOR_GROUP -Dlog4j.configuration=file:./log4j.docker.properties -Dconfig=secor.prod.target.properties \
 -cp secor-0.16-SNAPSHOT.jar:lib/* com.pinterest.secor.main.ConsumerMain
