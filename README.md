@@ -15,7 +15,7 @@ Can be configured using environment variables:
 Variable Name              | Configuration Option
 ---------------------------|---------------------------
 DEBUG                      | Enable some debug logging (default `false`)
-ZOOKEEPER_QUORUM           | Zookeeper quorom (required)
+ZOOKEEPER_QUORUM           | Zookeeper quorum (required)
 AWS_ACCESS_KEY             | AWS Access key (required)
 AWS_SECRET_KEY             | AWS Secret access key (required)
 SECOR_S3_BUCKET            | Target S3 bucket (required)
