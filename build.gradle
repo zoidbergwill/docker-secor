@@ -1,0 +1,16 @@
+plugins {
+  id 'com.github.johnrengelman.shadow' version '1.2.4'
+  id 'java'
+  id 'application'
+}
+
+mainClassName = 'com.pinterest.secor.main.ConsumerMain'
+
+repositories {
+    jcenter()
+    maven { url "http://maven.twttr.com/" }
+}
+
+dependencies {
+    compile 'com.pinterest:secor:0.22'
+}
