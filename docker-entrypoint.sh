@@ -1,7 +1,5 @@
 #!/bin/bash
 
-bash
-
 set -e
 if [[ ! -z "$DEBUG" ]]; then
     set -x
@@ -78,6 +76,6 @@ sed -i -e "s/ostrich.port=.*$/ostrich.port=${SECOR_OSTRICH_PORT}/" $SECOR_CONFIG
 
 java -Xmx$JVM_MEMORY -ea -cp /opt/secor/secor.jar \
   -Dsecor_group=$SECOR_GROUP \
-  -Dlog4j.configuration=file:./log4j.docker.properties \
-  -Dconfig=secor.prod.properties \
+  -Dlog4j.configuration=file:/opt/secor/log4j.docker.properties \
+  -Dconfig=/opt/secor/secor.prod.properties \
   com.pinterest.secor.main.ConsumerMain

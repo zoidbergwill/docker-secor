@@ -1,8 +1,6 @@
 # Secor
 
-This project uses Gradle to package up Secor as a single executable JAR containing all dependencies, and packages that JAR inside a docker container which can be configured through the use of ENV vars at runtime.
-
-By default uses Snappy compression, please checkout https://github.com/pinterest/secor for more information.
+This project uses Gradle to pull Secor and its dependencies, and packages them inside a docker container which can be configured through the use of ENV vars at runtime.
 
 ## Example
 ```

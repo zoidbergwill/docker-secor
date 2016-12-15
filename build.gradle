@@ -12,5 +12,11 @@ repositories {
 }
 
 dependencies {
-    compile 'com.pinterest:secor:0.22'
+    compile ('com.pinterest:secor:0.22') {
+        // exclude kafka 0.8.x as it bugs when in an uber-jar, and doesn't support kafka-offsets
+        exclude group: 'org.apache.kafka', module: 'kafka_2.10'
+    }
+
+    // pref kafka 0.10.0.1 for the above reasons
+    compile 'org.apache.kafka:kafka_2.10:0.10.0.1'
 }
