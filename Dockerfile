@@ -23,7 +23,8 @@ RUN cd /app \
 	&& ./gradlew shadowJar \
 	&& mkdir -p /opt/secor \
 	&& cp /app/build/libs/docker-secor-all.jar /opt/secor/secor.jar \
-	&& rm -rf /app
+	&& rm -rf /app \
+	&& rm -rf ~/.gradle
 
 # Copy script to run Secor
 COPY docker-entrypoint.sh /docker-entrypoint.sh
