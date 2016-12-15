@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+
 if [[ ! -z "$DEBUG" ]]; then
     set -x
 fi
@@ -18,6 +19,7 @@ if [[ -z "$SECOR_S3_BUCKET" || -z "$SECOR_S3_PATH" ]]; then
 fi
 
 if [[ -n "$AWS_ACCESS_KEY" && -n "$AWS_SECRET_KEY" ]]; then
+    # if these vars don't get exported, AWS CLI will fall back to using its own credential lookup
     export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY
     export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY
 fi

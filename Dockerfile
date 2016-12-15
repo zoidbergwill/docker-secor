@@ -17,8 +17,13 @@ ENV PATH $PATH:/usr/local/hadoop/bin
 
 RUN pip install --upgrade awscli
 
-# Copy over uber-JAR Secor
-COPY build/libs/docker-secor-all.jar /opt/secor/secor.jar
+ADD . /app
+
+RUN cd /app \
+	&& ./gradlew shadowJar \
+	&& mkdir -p /opt/secor \
+	&& cp /app/build/libs/docker-secor-all.jar /opt/secor/secor.jar \
+	&& rm -rf /app
 
 # Copy script to run Secor
 COPY docker-entrypoint.sh /docker-entrypoint.sh

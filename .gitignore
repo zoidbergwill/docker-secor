@@ -1,4 +1,3 @@
-test.sh
 build/
 .gradle/
 .DS_Store

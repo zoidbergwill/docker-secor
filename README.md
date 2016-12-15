@@ -1,11 +1,28 @@
 # Secor
 
-This project uses Gradle to pull Secor and its dependencies, and packages them inside a docker container which can be configured through the use of ENV vars at runtime.
+This project uses Docker (and Gradle under the hood) to produce a Docker image containing an uber-jar (single jar containing all dependencies) version of Pinterest Secor (https://github.com/pinterest/secor)
 
-## Example
+`docker-entrypoint.sh` is the entrypoint into the image, it is responsible for taking passed in ENV vars at runtime and configuring Secor accordingly. The table below shows all ENV variables you can specify to configure Secor's operation.
+
+## Building the Image
+
+```shell
+docker build -t ovotech/secor:<your_label> .
 ```
-docker run -e ZOOKEEPER_QUORUM=zookeeper.service.consul:2181 \
-       -e SECOR_S3_BUCKET=test-bucket sagent/secor
+
+## How to Run
+
+If you are running from outside an AWS instance, you must specify AWS credentials:
+
+```shell
+docker run \
+  -e DEBUG=true \
+  -e ZOOKEEPER_QUORUM=zookeeper.quorum.consul:2181 \
+  -e AWS_ACCESS_KEY=YOUR_KEY \
+  -e AWS_SECRET_KEY=YOUR_SECRET \
+  -e SECOR_S3_BUCKET=my-kafka-backups \
+  -e SECOR_GROUP=raw_logs \
+  ovotech/secor
 ```
 
 ## Configuration options
