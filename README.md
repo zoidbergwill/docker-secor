@@ -58,3 +58,11 @@ Variable Name.               | Configuration Option
 `SECOR_FILE_EXTENSION`       | Custom file extension to add to each sequence file stored (not required, e.g., `.snappy`)
 `SECOR_PER_HOUR`             | Should Secor partition the files up by hour as well as day? (default `false`)
 `SECOR_PARSER`               | Which message parser implementation to use? (default `OffsetMessageParser`)
+
+## Using without Docker
+
+If you just wish to package up Secor as a standalone uber-JAR, you can run the gradle tasks directly, e.g.:
+
+```shell
+./gradlew shadowJar
+```
