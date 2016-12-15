@@ -8,9 +8,13 @@ Currently, this project packages Secor 0.22, using Kafka client version 0.10.0.1
 
 ## Building the Image
 
+You can build the image locally by doing:
+
 ```shell
-docker build -t ovotech/secor:<your_label> .
+docker build -t secor .
 ```
+
+To release a new version to the ovotech Docker org, you must create a tag/release in the git repository. The name of the tag will be used as the Docker release tag.
 
 ## How to Run
 
@@ -24,7 +28,7 @@ docker run \
   -e AWS_SECRET_KEY=YOUR_SECRET \
   -e SECOR_S3_BUCKET=my-kafka-backups \
   -e SECOR_GROUP=raw_logs \
-  ovotech/secor
+  secor
 ```
 
 ## Configuration options
