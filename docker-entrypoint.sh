@@ -6,18 +6,21 @@ if [[ ! -z "$DEBUG" ]]; then
     set -x
 fi
 
+# If BOTH are unset
 if [[ -z "$ZOOKEEPER_QUORUM" && -z "$KAFKA_SEED_BROKER_HOST" ]]; then
-    echo "You must set ZOOKEEPER_QUORUM or KAFKA_SEED_BROKER_HOST."
+    echo "You must set either ZOOKEEPER_QUORUM or KAFKA_SEED_BROKER_HOST."
     echo "  e.g., launch with -e ZOOKEEPER_QUORUM=zookeeper:2181 or -e KAFKA_SEED_BROKER_HOST=my.kafka.host"
     exit 1
 fi
 
+# If EITHER is unset
 if [[ -z "$SECOR_S3_BUCKET" || -z "$SECOR_S3_PATH" ]]; then
-    echo "You must set SECOR_S3_BUCKET and SECOR_S3_PATH."
+    echo "You must set both SECOR_S3_BUCKET and SECOR_S3_PATH."
     echo "  e.g., launch with -e SECOR_S3_BUCKET=my-bucket -e SECOR_S3_PATH=my-path"
     exit 1
 fi
 
+# If BOTH are set
 if [[ -n "$AWS_ACCESS_KEY" && -n "$AWS_SECRET_KEY" ]]; then
     # if these vars don't get exported, AWS CLI will fall back to using its own credential lookup
     export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY
