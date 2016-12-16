@@ -1,4 +1,4 @@
-# Secor (0.22)
+# Secor 0.22 _(Kafka 0.10.0.1)_
 
 This project uses Docker (and Gradle under the hood) to produce a Docker image containing an uber-jar (single jar containing all dependencies) version of Pinterest Secor (https://github.com/pinterest/secor).
 
