@@ -43,7 +43,7 @@ Environment Variable Name           | Required? | Purpose
 `KAFKA_SEED_BROKER_HOST`            | **Yes**   | Kafka broker hosts (not required if `ZOOKEEPER_QUORUM` is specified)
 `SECOR_S3_BUCKET`                   | **Yes**   | The S3 bucket into which backups will be persisted
 `SECOR_S3_PATH`                     | **Yes**   | Path within S3 bucket where sequence files are stored
-`SECOR_FILE_READER_WRITER_FACTORY`  | **Yes**   | Which `WriterFactory` to use (defaults to: `SequenceFileReaderWriterFactory`)
+`SECOR_FILE_READER_WRITER_FACTORY`  | **No**    | Which `WriterFactory` to use (defaults to: `SequenceFileReaderWriterFactory`)
 `DEBUG`                             | **No**    | Enable some debug logging (defaults to: `false`)
 `JVM_MEMORY`                        | **No**    | How much memory to give the JVM (via the `-Xmx` parameter) (defaults to: `512m`)
 `KAFKA_SEED_BROKER_PORT`            | **No**    | Kafka broker port (defaults to: `9092`)
