@@ -57,7 +57,6 @@ Variable Name.               | Configuration Option
 `SECOR_COMPRESSION_CODEC`    | Which compression codec to use (not required, e.g., `org.apache.hadoop.io.compress.SnappyCodec`)
 `SECOR_FILE_EXTENSION`       | Custom file extension to add to each sequence file stored (not required, e.g., `.snappy`)
 `SECOR_PER_HOUR`             | Should Secor partition the files up by hour as well as day? (default `false`)
-`SECOR_PARSER`               | Which message parser implementation to use? (default `OffsetMessageParser`)
 
 ## Using without Docker
 
