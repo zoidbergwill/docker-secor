@@ -39,22 +39,22 @@ Can be configured using environment variables:
 
 Environment Variable Name           | Required? | Purpose
 ------------------------------------|-----------|---------------------------------------------------------------------------------------------------
-`DEBUG`                             | **No**    | Enable some debug logging (defaults to: `false`)
-`JVM_MEMORY`                        | **No**    | How much memory to give the JVM (via the `-Xmx` parameter) (defaults to: `512m`)
 `ZOOKEEPER_QUORUM`                  | **Yes**   | Zookeeper quorum (not required if `KAFKA_SEED_BROKER_HOST` is specified)
 `KAFKA_SEED_BROKER_HOST`            | **Yes**   | Kafka broker hosts (not required if `ZOOKEEPER_QUORUM` is specified)
+`SECOR_S3_BUCKET`                   | **Yes**   | The S3 bucket into which backups will be persisted
+`SECOR_S3_PATH`                     | **Yes**   | Path within S3 bucket where sequence files are stored
+`SECOR_FILE_READER_WRITER_FACTORY`  | **Yes**   | Which `WriterFactory` to use (defaults to: `SequenceFileReaderWriterFactory`)
+`DEBUG`                             | **No**    | Enable some debug logging (defaults to: `false`)
+`JVM_MEMORY`                        | **No**    | How much memory to give the JVM (via the `-Xmx` parameter) (defaults to: `512m`)
 `KAFKA_SEED_BROKER_PORT`            | **No**    | Kafka broker port (defaults to: `9092`)
 `AWS_ACCESS_KEY`                    | **No**    | AWS Access key
 `AWS_SECRET_KEY`                    | **No**    | AWS Secret access key
 `AWS_REGION`                        | **No**    | The AWS region for S3 uploading
 `AWS_ENDPOINT`                      | **No**    | The AWS S3 endpoint to use for uploading
-`SECOR_S3_BUCKET`                   | **Yes**   | The S3 bucket into which backups will be persisted
-`SECOR_S3_PATH`                     | **Yes**   | Path within S3 bucket where sequence files are stored
 `SECOR_KAFKA_TOPIC_FILTER`          | **No**    | Regexp filter which topics it should replicate (defaults to: `.*`)
 `SECOR_KAFKA_TOPIC_BLACKLIST`       | **No**    | Which topics to exclude from backing up
 `SECOR_MAX_FILE_BYTES`              | **No**    | Max bytes per file stored in S3 (defaults to: `200000000`)
 `SECOR_MAX_FILE_SECONDS`            | **No**    | Max time per file before it is stored in S3 (defaults to: `3600`)
-`SECOR_FILE_READER_WRITER_FACTORY`  | **Yes**   | Which `WriterFactory` to use (defaults to: `SequenceFileReaderWriterFactory`)
 `SECOR_COMPRESSION_CODEC`           | **No**    | Which Hadoop compression codec to use for partition files
 `SECOR_FILE_EXTENSION`              | **No**    | Custom file extension to be appended to all partition names
 `SECOR_TIMESTAMP_NAME`              | **No**    | When using `DateMessageParser` what field to use in the JSON (defaults to: `timestamp`)
