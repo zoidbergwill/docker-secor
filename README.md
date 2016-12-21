@@ -11,10 +11,8 @@ Currently, this project packages Secor 0.22, using Kafka client version 0.10.0.1
 You can build the image locally by doing:
 
 ```shell
-docker build -t secor .
+docker build -t [yourorg/]secor .
 ```
-
-To release a new version to the ovotech Docker org, you must create a tag/release in the git repository. The name of the tag will be used as the Docker release tag.
 
 ## How to Run
 
@@ -32,6 +30,10 @@ docker run \
 ```
 
 There are many more configuration options that can be passed in via `-e NAME=value`, described in the table below.
+
+## Releasing (to Ovotech)
+
+The Docker Hub repo ([ovotech/secor](https://hub.docker.com/r/ovotech/secor/)) is configured to automatically build when this repository is changed (i.e., when a change is pushed to `master`, or when a tag/release is created). 
 
 ## Configuration options
 
@@ -69,7 +71,7 @@ Environment Variable Name           | Required? | Purpose
 `SECOR_OFFSETS_PER_PARTITION`       | **No**    | How many offsets should be stored within a backed up partition? (defaults to: `10000000`)
 `KAFKA_OFFSETS_STORAGE`             | **No**    | Should offsets be stored in Kafka or ZooKeeper? (defaults to: `kafka`)
 `KAFKA_DUAL_COMMIT_ENABLED`         | **No**    | Should Secor commit processed offsets to Kafak AND ZooKeeper? (defaults to: `false`)
-`SECOR_OSTRICH_PORT`                | **No**    | What port should Ostrict data be sent on (defaults to: `9999`)
+`SECOR_OSTRICH_PORT`                | **No**    | What port should Ostrich data be sent on (defaults to: `9999`)
 
 
 ## Using without Docker
