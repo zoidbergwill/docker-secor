@@ -34,7 +34,7 @@ if [[ -n "$AWS_ACCESS_KEY" && -n "$AWS_SECRET_KEY" ]]; then
 fi
 
 # Ensure we can access S3
-aws s3 ls s3://$SECOR_S3_BUCKET > /dev/null
+aws --endpoint-url $AWS_ENDPOINT s3 ls s3://$SECOR_S3_BUCKET > /dev/null
 
 SECOR_CONFIG_FILE=/opt/secor/secor.prod.properties
 
